@@ -1,5 +1,10 @@
 name: PHPUnit 5.6
 description: Run your PHPUnit tests with php 5.6 in your Github Actions.
+inputs:
+  who-to-greet:
+    description: Generate code coverage report in HTML format
+    required: false
+
 runs:
   using: "composite"
   steps:
@@ -12,5 +17,5 @@ runs:
       shell: bash
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
-    - run: goodbye.sh
+    - run: entrypoint.sh
       shell: bash
